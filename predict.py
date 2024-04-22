@@ -88,7 +88,7 @@ def process_video(pairs, predictor, output_dir):
             pred = cv2.cvtColor(pred, cv2.COLOR_RGB2BGR)
             video_out.write(pred)
 
-def main(img_pattern: str,
+def deblur(img_pattern: str,
          mask_pattern: Optional[str] = None,
          weights_path='fpn_inception.h5',
          out_dir='submit/',
@@ -122,12 +122,12 @@ def main(img_pattern: str,
 # def getfiles():
 #     filenames = os.listdir(r'.\dataset1\blur')
 #     print(filenames)
-def get_files():
-    list=[]
-    for filepath,dirnames,filenames in os.walk(r'.\dataset1\blur'):
-        for filename in filenames:
-            list.append(os.path.join(filepath,filename))
-    return list
+#def get_files():
+#    list=[]
+#    for filepath,dirnames,filenames in os.walk(r'.\dataset1\blur'):
+#        for filename in filenames:
+#            list.append(os.path.join(filepath,filename))
+#    return list
 
 
 
@@ -137,4 +137,5 @@ if __name__ == '__main__':
   #  Fire(main)
 #增加批量处理图片：
     im_path = sys.argv[1]
-    main(im_path)
+    print(im_path)
+    deblur(im_path)
